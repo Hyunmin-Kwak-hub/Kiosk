@@ -63,7 +63,23 @@ public class Kiosk {
                 break;
             }
 
-            menu.selectMenu(firstStep);
+            switch (firstStep) {
+                case 1:
+                    System.out.println("버거 메뉴를 선택하셨습니다.");
+
+                    break;
+                case 2:
+                    System.out.println("음료 메뉴를 선택하셨습니다.");
+
+                    break;
+                case 3:
+                    System.out.println("사이드 메뉴를 선택하셨습니다.");
+
+                    break;
+                default:
+                    System.out.println("잘못된 입력입니다. 처음으로 돌아갑니다.");
+                    break;
+            }
 
         }
     }
