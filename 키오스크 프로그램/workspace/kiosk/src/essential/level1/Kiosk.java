@@ -10,9 +10,8 @@ public class Kiosk {
     private String step; // 입력 단계
 
     // 생산자
-    public Kiosk(String step, int input) {
-        this.step = step;
-        this.input = input;
+    public Kiosk() {
+
     }
 
     // 기능
@@ -32,11 +31,13 @@ public class Kiosk {
         return step;
     }
 
-    public static void startKiosk() {
+    public static void start() {
 
+        // Scanner 선언
         Scanner scanner = new Scanner(System.in);
         Menu menu = new Menu();
 
+        // 반복문 시작
         while (true) {
             System.out.println("메뉴의 번호를 입력해주세요 1)버거, 2)음료, 3) 사이드메뉴 0) 종료 : ");
 
