@@ -49,10 +49,10 @@ public class Kiosk {
 
             try {
                 firstChoice = scanner.nextInt();
+                scanner.nextLine();
 
             } catch (Exception e) {
                 System.out.println("오류: 옳바른 입력 값이 아닙니다. 다시 입력해주세요!" + e);
-                scanner.nextLine();
                 continue;
             }
 
@@ -71,15 +71,15 @@ public class Kiosk {
                 case 1:
                     System.out.println("버거 메뉴를 선택하셨습니다.");
                     menu.printMenu();
-                    System.out.println("메뉴의 번호를 선택해주세요.");
-                    thirdChoice = scanner.nextInt();
+                    System.out.print("원하시는 메뉴의 번호를 선택해주세요.");
+                    secondChoice = scanner.nextInt();
+                    scanner.nextLine();
 
                     try {
                         secondChoice = scanner.nextInt();
 
                     } catch (Exception e) {
                         System.out.println("오류: 옳바른 입력 값이 아닙니다. 다시 입력해주세요!" + e);
-                        scanner.nextLine();
                         continue;
                     }
 
@@ -91,9 +91,26 @@ public class Kiosk {
                     if (secondChoice == 0) {
                         System.out.println("돌아가기를 선택하셨습니다.");
                         System.out.println("처음으로 돌아갑니다.");
+                        // 반복문 처음으로 돌아가는 거 필요
                     }
 
+                    if (secondChoice <= menu.getMenuList().size()) {
+                        scanner.nextLine(); // 스캐너 초기화
+                        MenuItem selectedItem = menu.findMenu(secondChoice);
 
+                        if (selectedItem != null) {
+
+                            System.out.println("선택한 메뉴: " + selectedItem.getMenuName() + " | " + selectedItem.getPrice() + " | "
+                                    + selectedItem.getIntroduce());
+                            break;
+                        } else {
+                            System.out.println("없는 메뉴 입니다.");
+                            continue;
+                        }
+
+                    } else {
+                        System.out.println("없는 메뉴입니다.");
+                    }
 
                     break;
                 case 2:

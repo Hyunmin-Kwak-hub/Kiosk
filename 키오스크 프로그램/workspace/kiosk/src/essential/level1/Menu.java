@@ -26,6 +26,14 @@ public class Menu {
         System.out.println(0 + ". 돌아가기      | 돌아가기");
     }
 
+    public MenuItem findMenu(int menuNum) {
+        for (MenuItem item : menuList) {
+            if (item.getItemNum() == menuNum) {
+                return item;
+            }
+        }
+        return null;
+    }
 
     // 게터
 
