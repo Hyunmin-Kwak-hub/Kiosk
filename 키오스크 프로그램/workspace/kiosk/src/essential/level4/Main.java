@@ -1,6 +1,4 @@
-package essential.level1;
-
-import java.util.Scanner;
+package essential.level4;
 
 public class Main {
 

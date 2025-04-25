@@ -1,4 +1,4 @@
-package essential.level1;
+package essential.level4;
 
 public class MenuItem {
     // 속성
