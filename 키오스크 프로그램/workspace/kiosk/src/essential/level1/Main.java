@@ -11,7 +11,7 @@ public class Main {
         String menu3 = 3 + ". Cheeseburger | W" + 6.9 + " | 포테이토 번과 비프패티, 치즈가 토핑된 치즈버거";
         String menu4 = 4 + ". Hamburger | W" + 6.9 + " | 비프패티를 기반으로 야채가 들어간 기본버거";
 
-        int Choice = 0;
+        int choice = 0;
 
         while(true) {
             System.out.println("[ SHAKESHACK MENU ]");
@@ -22,7 +22,7 @@ public class Main {
             System.out.println(0 + ". 종료     | 종료");
 
             try {
-                Choice = scanner.nextInt();
+                choice = scanner.nextInt();
 
             } catch (Exception e) {
                 System.out.println("오류: 옳바른 입력 값이 아닙니다. 다시 입력해주세요!" + e);
@@ -30,19 +30,19 @@ public class Main {
                 continue;
             }
 
-            if (Choice > 3 || Choice < 0) {
+            if (choice > 4 || choice < 0) {
                 System.out.println("입력이 잘못되었습니다.");
                 scanner.nextLine();
                 continue;
             }
 
-            if (Choice == 0) {
+            if (choice == 0) {
                 System.out.println("종료를 선택하셨습니다.");
                 System.out.println("프로그램을 종료합니다.");
                 break;
             }
 
-            switch (Choice) {
+            switch (choice) {
                 case 1:
                     System.out.println(menu1);
                     break;
