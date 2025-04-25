@@ -32,7 +32,8 @@ public class Menu {
                 return item;
             }
         }
-        return null; // 수정
+        throw new RuntimeException();
+        // return null; // 수정
     }
 
     // 게터

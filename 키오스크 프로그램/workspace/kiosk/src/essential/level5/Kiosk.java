@@ -83,18 +83,26 @@ public class Kiosk {
 
                     // 입력값이 메뉴 갯수에 맞게 정상일때
                     if (secondChoice <= menu.getMenuList().size()) {
-                        MenuItem selectedItem = menu.findMenu(secondChoice);
-
-                        if (selectedItem != null) {
-
+                        try {
+                            MenuItem selectedItem = menu.findMenu(secondChoice);
                             System.out.println("선택한 메뉴: " + selectedItem.getMenuName() + " | " + selectedItem.getPrice() + " | "
                                     + selectedItem.getIntroduce());
                             break;
-                        } else {
+                        } catch (RuntimeException e) {
                             System.out.println("없는 메뉴 입니다.");
                             scanner.nextLine();
                             continue;
                         }
+//                        if (selectedItem != null) {
+//
+//                            System.out.println("선택한 메뉴: " + selectedItem.getMenuName() + " | " + selectedItem.getPrice() + " | "
+//                                    + selectedItem.getIntroduce());
+//                            break;
+////                        } else {
+////                            System.out.println("없는 메뉴 입니다.");
+////                            scanner.nextLine();
+////                            continue;
+////                        }
 
                     } else {
                         System.out.println("없는 메뉴입니다.");
