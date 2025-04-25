@@ -98,11 +98,11 @@ public class Kiosk {
 //                            System.out.println("선택한 메뉴: " + selectedItem.getMenuName() + " | " + selectedItem.getPrice() + " | "
 //                                    + selectedItem.getIntroduce());
 //                            break;
-////                        } else {
-////                            System.out.println("없는 메뉴 입니다.");
-////                            scanner.nextLine();
-////                            continue;
-////                        }
+//                        } else {
+//                            System.out.println("없는 메뉴 입니다.");
+//                            scanner.nextLine();
+//                            continue;
+//                        }
 
                     } else {
                         System.out.println("없는 메뉴입니다.");
