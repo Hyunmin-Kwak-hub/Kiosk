@@ -5,8 +5,9 @@ import java.util.Scanner;
 public class Kiosk {
 
     // 속성
-    private int input; // 입력받은 숫자
-    private String step; // 입력 단계
+    private int input; // 입력받은 숫자 (사용X)
+    private String step; // 입력 단계 (사용X)
+    private Scanner scanner = new Scanner(System.in);
     private Menu menu;
 
 
@@ -36,9 +37,6 @@ public class Kiosk {
 
     public void start() {
 
-        // Scanner 선언
-        Scanner scanner = new Scanner(System.in);
-
 
         // 반복문 시작
         while (true) {
@@ -46,7 +44,6 @@ public class Kiosk {
 
             int firstChoice = 0;
             int secondChoice = 0;
-            int thirdChoice = 0;
 
             try {
                 firstChoice = scanner.nextInt();
