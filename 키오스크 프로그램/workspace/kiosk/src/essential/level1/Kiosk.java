@@ -8,10 +8,12 @@ public class Kiosk {
     // 속성
     private int input; // 입력받은 숫자
     private String step; // 입력 단계
+    private Menu menu;
 
-    // 생산자
-    public Kiosk() {
 
+    // 생성자
+    public Kiosk(Menu menu) {
+        this.menu = menu;
     }
 
     // 기능
@@ -33,15 +35,15 @@ public class Kiosk {
         return step;
     }
 
-    public static void start() {
+    public void start() {
 
         // Scanner 선언
         Scanner scanner = new Scanner(System.in);
-        Menu menu = new Menu();
+
 
         // 반복문 시작
         while (true) {
-            System.out.println("메뉴의 번호를 입력해주세요 1)버거, 2)음료, 3) 사이드메뉴 0) 종료 : ");
+            System.out.print("메뉴의 번호를 입력해주세요 1)버거, 2)음료, 3) 사이드메뉴 0) 종료 : ");
 
             int firstChoice = 0;
             int secondChoice = 0;
@@ -49,15 +51,16 @@ public class Kiosk {
 
             try {
                 firstChoice = scanner.nextInt();
-                scanner.nextLine();
 
             } catch (Exception e) {
                 System.out.println("오류: 옳바른 입력 값이 아닙니다. 다시 입력해주세요!" + e);
+                scanner.nextLine();
                 continue;
             }
 
             if (firstChoice > 3 || firstChoice < 0) {
                 System.out.println("입력이 잘못되었습니다.");
+                scanner.nextLine();
                 continue;
             }
 
@@ -72,30 +75,30 @@ public class Kiosk {
                     System.out.println("버거 메뉴를 선택하셨습니다.");
                     menu.printMenu();
                     System.out.print("원하시는 메뉴의 번호를 선택해주세요.");
-                    secondChoice = scanner.nextInt();
-                    scanner.nextLine();
 
                     try {
                         secondChoice = scanner.nextInt();
 
                     } catch (Exception e) {
                         System.out.println("오류: 옳바른 입력 값이 아닙니다. 다시 입력해주세요!" + e);
+                        scanner.nextLine();
                         continue;
                     }
 
                     if (secondChoice > menu.getMenuList().size() || secondChoice < 0) {
                         System.out.println("입력이 잘못되었습니다.");
+                        scanner.nextLine();
                         continue;
                     }
 
                     if (secondChoice == 0) {
                         System.out.println("돌아가기를 선택하셨습니다.");
                         System.out.println("처음으로 돌아갑니다.");
-                        // 반복문 처음으로 돌아가는 거 필요
+                        scanner.nextLine();
+                        break;
                     }
 
                     if (secondChoice <= menu.getMenuList().size()) {
-                        scanner.nextLine(); // 스캐너 초기화
                         MenuItem selectedItem = menu.findMenu(secondChoice);
 
                         if (selectedItem != null) {
@@ -105,11 +108,13 @@ public class Kiosk {
                             break;
                         } else {
                             System.out.println("없는 메뉴 입니다.");
+                            scanner.nextLine();
                             continue;
                         }
 
                     } else {
                         System.out.println("없는 메뉴입니다.");
+                        scanner.nextLine();
                     }
 
                     break;
@@ -123,6 +128,7 @@ public class Kiosk {
                     break;
                 default:
                     System.out.println("잘못된 입력입니다. 처음으로 돌아갑니다.");
+                    scanner.nextLine();
                     break;
             }
 

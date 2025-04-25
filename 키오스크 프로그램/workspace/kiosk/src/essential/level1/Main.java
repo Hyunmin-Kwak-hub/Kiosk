@@ -21,7 +21,7 @@ public class Main {
         menu.addMenu(item3);
 
         // Kiosk 객체 생성
-        Kiosk kiosk = new Kiosk();
+        Kiosk kiosk = new Kiosk(menu);
 
         // Kiosk 내 시작하는 함수 호출
         kiosk.start();
