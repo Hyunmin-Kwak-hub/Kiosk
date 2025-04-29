@@ -7,13 +7,15 @@ public class Kiosk {
     private Scanner scanner = new Scanner(System.in);
     private Menu menu;
     private Cart cart;
+    private Order order;
 
 
     // 생성자
-    public Kiosk(Menu menu, Cart cart) {
+    public Kiosk(Menu menu, Cart cart, Order order) {
 
         this.menu = menu;
         this.cart = cart;
+        this.order = order;
     }
 
     // 게터
@@ -180,7 +182,42 @@ public class Kiosk {
                                 break;
                                 // 주문하기
                             case 2:
-                                break;
+                                System.out.println("주문하기를 선택하셨습니다.");
+
+                                // 결제 영수증 출력
+                                order.printReceipt();
+
+                                while (true) {
+                                    System.out.println("결제를 진행하시겠습니까? 1) 예 2) 아니요");
+                                    try {
+                                        thirdChoice = scanner.nextInt();
+                                    } catch (Exception e) {
+                                        System.out.println("오류: 잘못된 입력입니다." + e);
+                                        scanner.nextLine();
+                                        continue;
+                                    }
+                                    if (thirdChoice < 1 || thirdChoice > 2) {
+                                        System.out.println("입력이 잘못되었습니다.");
+                                        scanner.nextLine();
+                                        continue;
+                                    }
+
+                                    switch (thirdChoice) {
+                                        case 1:
+                                            System.out.println("결제가 완료되었습니다. 금액은 W"
+                                                    + order.getTotalPrice() + " 입니다");
+                                            // 장바구니 초기화
+                                            cart.clearCart();
+                                            System.out.println("메뉴로 돌아갑니다. 계속 주문하시려면 메뉴를 선택하세요.");
+                                            continue firstLoop;
+                                        case 2:
+                                            System.out.println("결제가 취소되었습니다. 메뉴로 돌아갑니다.");
+                                            continue firstLoop;
+                                        default:
+                                            System.out.println("잘못된 입력입니다. 다시 입력해주세요.");
+                                            break;
+                                    }
+                                }
                             default:
                                 System.out.println("잘못된 입력입니다. 다시 입력해주세요");
                                 scanner.nextLine();

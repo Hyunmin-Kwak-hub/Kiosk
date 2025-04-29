@@ -23,4 +23,9 @@ public class CartItem {
     public void increaseQuantity() {
         quantity++;
     }
+
+    // 메뉴별 금액 소계
+    public double getSubtotalPrice() {
+        return menuItem.getPrice() * quantity;
+    }
 }

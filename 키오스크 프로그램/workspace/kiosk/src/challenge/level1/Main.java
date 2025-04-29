@@ -9,6 +9,9 @@ public class Main {
         // Cart 객체 생성
         Cart cart = new Cart();
 
+        // Order 객체 생성
+        Order order = new Order(cart.getCartList());
+
         // Menu 클래스 내 있는 List<MenuItem>에 MenuItem 객체 생성하면서 삽입
         MenuItem item0 = new MenuItem(1, "ShackBurger", 6.9, "토마토, 양상추, 쉑소스가 토핑된 치즈버거");
         MenuItem item1 = new MenuItem(2, "SmokeShack", 8.9, "베이컨, 체리 페퍼에 쉑소스가 토핑된 치즈버거");
@@ -20,7 +23,7 @@ public class Main {
         menu.addMenu(item3);
 
         // Kiosk 객체 생성
-        Kiosk kiosk = new Kiosk(menu , cart);
+        Kiosk kiosk = new Kiosk(menu, cart, order);
 
         // Kiosk 내 시작하는 함수 호출
         kiosk.start();

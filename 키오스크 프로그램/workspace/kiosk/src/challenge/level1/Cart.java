@@ -46,4 +46,19 @@ public class Cart {
         }
         System.out.println();
     }
+
+    // 장바구니 초기화
+    public void clearCart() {
+        cartList.clear();
+    }
+
+    public boolean isEmpty() {
+        return cartList.isEmpty();
+    }
+
+    // 게터
+
+    public List<CartItem> getCartList() {
+        return cartList;
+    }
 }
